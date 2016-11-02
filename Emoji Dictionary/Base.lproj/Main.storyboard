@@ -9,7 +9,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Emoji_Dictionary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ViewController" customModule="Emoji_Dictionary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -40,10 +40,10 @@
             </objects>
             <point key="canvasLocation" x="922" y="36"/>
         </scene>
-        <!--View Controller-->
+        <!--Definition View Controller-->
         <scene sceneID="7rX-wu-qSo">
             <objects>
-                <viewController id="hcc-Ag-5eC" sceneMemberID="viewController">
+                <viewController id="hcc-Ag-5eC" customClass="DefinitionViewController" customModule="Emoji_Dictionary" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GzR-Dp-t1V"/>
                         <viewControllerLayoutGuide type="bottom" id="1eF-UX-ya6"/>
@@ -71,6 +71,10 @@
                             <constraint firstItem="nU4-ri-b8h" firstAttribute="top" secondItem="COX-5Z-h88" secondAttribute="bottom" constant="30" id="xpN-D2-Cg9"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emojiDefinitionLabel" destination="nU4-ri-b8h" id="Srd-dc-AzK"/>
+                        <outlet property="emojiLabel" destination="COX-5Z-h88" id="BSU-nW-eGC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="500-RQ-96F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
