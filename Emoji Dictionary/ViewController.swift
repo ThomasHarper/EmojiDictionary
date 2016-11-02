@@ -12,7 +12,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     @IBOutlet weak var tableView: UITableView!
     
-    var emojis = ["😂","😄", "😳", "😋"]
+    var emojis : [Emoji] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +20,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         tableView.dataSource = self
         tableView.delegate = self
+        
+        emojis = makeEmojiArray()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -28,7 +30,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = emojis[indexPath.row]
+        let emoji = emojis[indexPath.row]
+        cell.textLabel?.text = emoji.emojiString
         return cell
     }
     
@@ -41,8 +44,30 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let defVC = segue.destination as! DefinitionViewController
         
-        defVC.emoji = sender as! String
+        defVC.emoji = sender as! Emoji
         
+    }
+    
+    func makeEmojiArray () -> [Emoji]{
+        let emojiOne = Emoji()
+        emojiOne.emojiString = "😂"
+        emojiOne.definition = "Laughing man"
+        emojiOne.category = "happiness"
+        emojiOne.birthyear = 2000
+        
+        let emojiTwo = Emoji()
+        emojiTwo.emojiString = "😄"
+        emojiTwo.definition = "Smiling man"
+        emojiTwo.category = "happiness"
+        emojiTwo.birthyear = 2001
+        
+        let emojiThree = Emoji()
+        emojiThree.emojiString = "😳"
+        emojiThree.definition = "Shy man"
+        emojiThree.category = "surprised"
+        emojiThree.birthyear = 2002
+        
+        return [emojiOne, emojiTwo, emojiThree]
     }
     
     override func didReceiveMemoryWarning() {
